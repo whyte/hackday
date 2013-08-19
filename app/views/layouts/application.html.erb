@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hackday</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'jquery-1.3.2.min'%>
+  <%= javascript_include_tag 'jquery-ui-1.8.18.custom.min.js'%>
+  <%= yield(:head) %>
+  <%= csrf_meta_tags %>
+  <link type="text/css" href="/assets/custom-theme/jquery-ui-1.8.18.custom.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="background_image_top">
+    <div class="container">
+      <div id="top_bar">
+        <div id="logo">
+          <h1><%= link_to 'Girls', root_path %><b><%= link_to ' Do Hack', root_path %></b></h1>  
+        </div>
+        <div id="menu_bar">
+          <ul>
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Event Details', root_path %></li>
+            <li><%= link_to 'Sponsorship', root_path %></li>            
+            <% if user_signed_in? %>
+              <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+              <li><%= link_to current_user.first_name + " " + current_user.last_name, edit_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+            <% end %>
+          </ul>
+          <div id="twitter_logo">
+            <%= link_to image_tag("twitter.png"), "https://twitter.com/girlsdohack" %>
+          </div>    
+        </div>    
+      </div>
+    </div>  
+  </div>
+<%= yield %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+</body>
+</html>

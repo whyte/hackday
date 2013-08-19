@@ -1,0 +1,22 @@
+<div class="container">
+  <div id="user_top">
+    <div id="user_photo">
+      <%= image_tag @user.avatar.url(:thumb)%>
+    </div>
+
+    <div id="user_details">
+      <ul>
+        <li class="name"><%= @user.first_name %><%= @user.last_name %></li>
+        <li class="company"><%= @user.school_company %></li>
+        <li class="twitter"><%= @user.twitter %></li>
+      </ul>  
+    </div>
+  <div>
+
+  <div id="user_left">  
+    <h1>STEM Skills</h1>
+  </div>  
+  <div id="user_right">  
+    <p><%= @user.bio %></p>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<% content_for(:head) do %>
+<%= stylesheet_link_tag "jquery.Jcrop" %>
+<%= javascript_include_tag "jquery.Jcrop.min" %>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $( "#tabs" ).tabs();
+});
+
+$(function() {
+  $('#cropbox').Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 500, 500],
+    aspectRatio: 1
+  });
+});
+
+function update_crop(coords) {
+  var rx = 100/coords.w;
+  var ry = 100/coords.h;
+  $('#preview').css({
+    width: Math.round(rx * <%= resource.avatar_geometry(:large).width %>) + 'px',
+    height: Math.round(ry * <%= resource.avatar_geometry(:large).height %>) + 'px',
+    marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+    marginTop: '-' + Math.round(ry * coords.y) + 'px'
+  });
+  var ratio = <%= resource.avatar_geometry(:original).width %> / <%= resource.avatar_geometry(:large).width %>;
+  $("#crop_x").val(Math.round(coords.x * ratio));
+  $("#crop_y").val(Math.round(coords.y * ratio));
+  $("#crop_w").val(Math.round(coords.w * ratio));
+  $("#crop_h").val(Math.round(coords.h * ratio));
+}
+</script>
+<% end %>
+
+<div class="container">
+  <% if resource.cropped %>
+    <div id="user_top">
+      <div id="user_photo">
+        <%= image_tag @user.avatar.url(:thumb)%>
+      </div>
+
+      <div id="user_details">
+        <ul>
+          <li class="name"><%= @user.first_name %><%= @user.last_name %></li>
+          <li class="company"><%= @user.school_company %></li>
+          <li class="twitter"><%= @user.twitter %></li>
+        </ul>  
+      </div>
+    <div>
+  <% end %>
+</div>  
+
+<div class="container">  
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Edit Photo</a></li>
+      <li><a href="#tabs-2">Edit Details</a></li>
+      <li><a href="#tabs-3">Update Password</a></li>
+    </ul>
+    <div id="tabs-1">
+      <%= render "devise/registrations/crop_avatar" %>
+    </div>
+    <div id="tabs-2">
+      <%= render "devise/registrations/form_edit" %>
+    </div>
+    <div id="tabs-3">
+      <%= render "devise/registrations/password_update" %>
+    </div>
+  </div>
+</div>
+
+
+
