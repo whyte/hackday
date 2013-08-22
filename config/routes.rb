@@ -3,7 +3,9 @@ Hackday::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations"}, :actions => {:show => "show"}
   
   resources :search
+  resources :admin
   match 'participant/:id' => 'search#show'
+  match 'admin/publish/:id' => 'admin#publish'
 
   #resources :organizations
 
