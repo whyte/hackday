@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
        :thumb => {:geometry => "200x200#", :processors => [:cropper]}, 
        :large => {:geometry => "500x500>"} 
    }, :default_url => "/images/:style/missing.png"
-   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :password, :password_confirmation, :current_password
+   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
    validates_presence_of :avatar, :first_name, :last_name
 
 

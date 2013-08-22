@@ -5,7 +5,12 @@
   
   <div><%= form.label :last_name %><%= form.text_field :last_name %></div>  
   
-  <div><%= form.label "company" %><%= form.text_field :school_company %></div>  
+  <% if params[:part_type] == "youth" %>
+    <div><%= form.label "school" %><%= form.text_field :school_company %></div> 
+  <% else %>
+    <div><%= form.label "company" %><%= form.text_field :school_company %></div>  
+  <% end %>
+  <%= form.hidden_field :part_type, :value => params[:part_type] %>
   
   <div><%= form.label :twitter %><%= form.text_field :twitter %></div>
   

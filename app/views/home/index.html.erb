@@ -9,14 +9,14 @@
   <div id="star_container">
     
     <% if current_user %>
-    <div class="stars"><%= link_to image_tag("star-teal.png"), destroy_user_session_path(:user => {:part_type => "mentor"}), :method => :delete %></div>
+    <div class="stars"><%= link_to image_tag("star-teal.png"), destroy_user_session_path(:part_type => "mentor"), :method => :delete %></div>
     <div class="star_links">
       <ul>
         <li>Be a mentor</li>
         <li class="light">Share your STEM experiences</li>
       </ul>
     </div>
-    <div class="stars"><%= link_to image_tag("star-red.png"), destroy_user_session_path(:user => {:part_type => "mentor"}), :method => :delete %></div>
+    <div class="stars"><%= link_to image_tag("star-red.png"), destroy_user_session_path(:part_type => "mentor"), :method => :delete %></div>
     <div class="star_links">    
       <ul>
         <li>Participate as a student</li>
@@ -24,14 +24,14 @@
       </ul>
     </div>
     <% else %>
-    <div class="stars"><%= link_to image_tag("star-teal.png"), new_user_registration_path(:user => {:part_type => "mentor"}) %></div>
+    <div class="stars"><%= link_to image_tag("star-teal.png"), new_user_registration_path(:part_type => "mentor") %></div>
     <div class="star_links">
       <ul>
         <li>Be a mentor</li>
         <li class="light">Share your STEM experiences</li>
       </ul>
     </div>
-    <div class="stars"><%= link_to image_tag("star-red.png"), new_user_registration_path(:user => {:part_type => "youth"}) %></div>
+    <div class="stars"><%= link_to image_tag("star-red.png"), new_user_registration_path(:part_type => "youth") %></div>
     <div class="star_links">    
       <ul>
         <li>Participate as a student</li>
@@ -51,29 +51,24 @@
   </div>    
 </div>
 <div id="youth_list"> 
-  <% @youth.each do |y| %>
-    <%= image_tag y.avatar.url(:thumb) %>
-  <% end %>
-  <div class="user_link">
-    <p>Meet all the students</p>
-    <h1>></h1>
+  <div class="container">
+    <% @youth.each do |y| %>
+      <%= link_to image_tag(y.avatar.url(:thumb)), :controller => "search", :action => "show", :id => y.id %>
+    <% end %>
+    <div class="user_link">
+      <p>Meet all the students</p>
+      <h1>></h1>
+    </div>
   </div>
-      
 </div>
 <div id="mentor_list">
+  <div class="container">
     <% @mentors.each do |m| %>
-      <%= image_tag m.avatar.url(:thumb) %>
+      <%= link_to image_tag(m.avatar.url(:thumb)), :controller => "search", :action => "show", :id => m.id %>
     <% end %>
     <div class="user_link">
       <p>Meet all the mentors</p>
       <h1>></h1>
-    </div>  
-</div>
-<div class="container">
-  <div id="sponsor_list">
-      <ul>
-        <li>Proud Sponsors of Girls Do Hack:</li>
-        <li class="logo"><%= link_to image_tag('logo-teza-gray.png'), "http://www.teza.com" %></li>
-      </ul>
-    </div>
+    </div> 
+  </div>    
 </div>
