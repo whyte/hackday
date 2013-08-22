@@ -51,10 +51,19 @@ function update_crop(coords) {
   <% end %>
   <div id="user_left">  
     <h1>STEM Skills</h1>
-  </div>  
-  <div id="user_right">  
-    <p><%= @user.bio %></p>
   </div>
+  
+  <% if current_user.published? %>  
+    <div id="user_right">  
+      <h2>Bio</h2>  
+      <p><%= @user.bio %></p>
+    </div>
+  <% else %>
+    <div id="user_right">
+      <h2>Welcome!</h2>  
+      <p>Thank-you for your interest in Girls Do Hack! We will review your details and be in touch in a couple of days.</p>
+    </div>
+  <% end %>  
 </div>  
 
 <div class="container">  

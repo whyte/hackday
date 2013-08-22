@@ -26,4 +26,10 @@ class RegistrationsController < Devise::RegistrationsController
       render :action => :edit
     end
   end
+  
+  protected
+
+  def after_sign_up_path_for(resource)
+    edit_user_registration_path(resource)
+  end
 end
