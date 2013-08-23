@@ -3,7 +3,7 @@
 <%= javascript_include_tag "jquery.Jcrop.min" %>
 <script type="text/javascript" charset="utf-8">
 $(function() {
-  $( "#tabs" ).tabs();
+  $( "#accordion" ).accordion();
 });
 
 $(function() {
@@ -38,6 +38,7 @@ function update_crop(coords) {
     <div id="user_top">
       <div id="user_photo">
         <%= image_tag @user.avatar.url(:thumb)%>
+        <h1>STEM Skills</h1>
       </div>
 
       <div id="user_details">
@@ -45,41 +46,44 @@ function update_crop(coords) {
           <li class="name"><%= @user.first_name %><%= @user.last_name %></li>
           <li class="company"><%= @user.school_company %></li>
           <li class="twitter"><%= @user.twitter %></li>
-        </ul>  
+        </ul> 
+        <% if current_user.published? %>   
+            <p><%= @user.bio %></p>
+        <% else %>
+            <p>Thank-you for your interest in Girls Do Hack! We will review your details and be in touch in a couple of days.</p>
+        <% end %> 
       </div>
     </div>
   <% end %>
-  <div id="user_left">  
-    <h1>STEM Skills</h1>
-  </div>
-  
-  <% if current_user.published? %>  
-    <div id="user_right">  
-      <h2>Bio</h2>  
-      <p><%= @user.bio %></p>
-    </div>
-  <% else %>
-    <div id="user_right">
-      <h2>Welcome!</h2>  
-      <p>Thank-you for your interest in Girls Do Hack! We will review your details and be in touch in a couple of days.</p>
-    </div>
-  <% end %>  
+
+
 </div>  
 
 <div class="container">  
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-1">Edit Photo</a></li>
-      <li><a href="#tabs-2">Edit Details</a></li>
-      <li><a href="#tabs-3">Update Password</a></li>
-    </ul>
-    <div id="tabs-1">
-      <%= render "devise/registrations/crop_avatar" %>
+  <div id="accordion">
+    <h3>Edit Photo</h3>
+    <div>
+      <div id="cropbox_box">
+        <%= image_tag resource.avatar.url(:large), :id => "cropbox" %>
+      </div>
+      <div id="preview_box">
+        <%= image_tag resource.avatar.url(:large), :id => "preview" %>
+      </div>
+      <div id="crop_button">
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+          <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+            <%= f.hidden_field attribute, :id => attribute %>
+          <% end %>
+          <p><%= f.submit "Crop" %></p>
+        <% end %>
+      </div>
     </div>
-    <div id="tabs-2">
+    <h3>Edit Details</h3>
+    <div>
       <%= render "devise/registrations/form_edit" %>
     </div>
-    <div id="tabs-3">
+    <h3>Update Password</h3>
+    <div>
       <%= render "devise/registrations/password_update" %>
     </div>
   </div>

@@ -6,6 +6,8 @@ Hackday::Application.routes.draw do
   resources :admin
   match 'participant/:id' => 'search#show'
   match 'admin/publish/:id' => 'admin#publish'
+  match 'event' => 'home#event'
+  match 'sponsorship' => 'home#sponsor'
 
   #resources :organizations
 

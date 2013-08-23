@@ -13,7 +13,9 @@ class SearchController < ApplicationController
       else  
         redirect_to :controller => "home", :action => "index"
       end
-    end  
+    end
+    @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..4]
+    @mentors = User.where(:part_type => 'mentor', :published => true).all.shuffle[0..4]  
   end
   
 
