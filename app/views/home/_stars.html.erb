@@ -1,0 +1,43 @@
+<div id="star_container">
+  
+  <% if current_user %>
+  <div class="stars"><%= link_to image_tag("star-teal.png"), destroy_user_session_path(:part_type => "mentor"), :method => :delete %></div>
+  <div class="star_links">
+    <ul>
+      <li>Be a mentor</li>
+      <li class="light">Share your STEM experiences</li>
+    </ul>
+  </div>
+  <div class="stars"><%= link_to image_tag("star-red.png"), destroy_user_session_path(:part_type => "mentor"), :method => :delete %></div>
+  <div class="star_links">    
+    <ul>
+      <li>Participate as a student</li>
+      <li class="light">Learn from STEM professionals</li>
+    </ul>
+  </div>
+  <% else %>
+  <div class="stars"><%= link_to image_tag("star-teal.png"), new_user_registration_path(:part_type => "mentor") %></div>
+  <div class="star_links">
+    <ul>
+      <li>Be a mentor</li>
+      <li class="light">Share your STEM experiences</li>
+    </ul>
+  </div>
+  <div class="stars"><%= link_to image_tag("star-red.png"), new_user_registration_path(:part_type => "youth") %></div>
+  <div class="star_links">    
+    <ul>
+      <li>Participate as a student</li>
+      <li class="light">Learn from STEM professionals</li>
+    </ul>
+  </div>
+  <% end %>   
+  
+  
+  <div class="stars"><%= link_to image_tag("star-green.png") %></div>
+  <div class="star_links">      
+    <ul>
+      <li>Become a sponsor</li>
+      <li class="light">Help make the event possible</li>
+    </ul>  
+  </div>              
+</div>
