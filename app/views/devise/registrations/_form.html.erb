@@ -1,28 +1,26 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |form| %>
   <%= devise_error_messages! %>
-
-  <div><%= form.label :first_name, :class => "form small"%><%= form.text_field :first_name %></div>
   
-  <div><%= form.label :last_name %><%= form.text_field :last_name %></div>  
-  
+  <%= text_field_tag "user[first_name]", "First name", "data-original-text" => "First name", :class => "auto-replace" %>
+  <%= text_field_tag "user[last_name]", "Last name", "data-original-text" => "Last name", :class => "auto-replace" %>
+    
   <% if params[:part_type] == "youth" %>
-    <div><%= form.label "school" %><%= form.text_field :school_company %></div> 
+  <%= text_field_tag "user[school_company]", "School", "data-original-text" => "School", :class => "auto-replace" %>
   <% else %>
-    <div><%= form.label "company" %><%= form.text_field :school_company %></div>  
+  <%= text_field_tag "user[school_company]", "Company", "data-original-text" => "Company", :class => "auto-replace" %>
   <% end %>
+  
   <%= form.hidden_field :part_type, :value => params[:part_type] %>
   
-  <div><%= form.label :twitter %><%= form.text_field :twitter %></div>
-  
-  <div><%= form.label :bio %><%= form.text_area :bio %></div>
-  
+  <%= text_field_tag "user[twitter]", "Twitter", "data-original-text" => "Twitter", :class => "auto-replace" %>
+  <%= text_area_tag "user[bio]", "Bio", "data-original-text" => "Bio", :class => "auto-replace" %>
+    
   <div><%= form.label :photo %><%= form.file_field :avatar %></div>
 
-  <div><%= form.label :email %><%= form.email_field :email, :autofocus => true %></div>
-
-  <div><%= form.label :password %><%= form.password_field :password %></div>
-
-  <div><%= form.label :password_confirmation %><%= form.password_field :password_confirmation %></div>
+  <%= text_field_tag "user[email]", "Email address", "data-original-text" => "Email address", :class => "auto-replace" %>
+  
+  <%= password_field_tag "user[password]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
+  <%= password_field_tag "user[password_confirmation]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
 
   <div><%= form.submit "Sign up" %></div>
 <% end %>
