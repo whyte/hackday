@@ -20,7 +20,11 @@
   form
     padding: 10px 0px
     
-    input
+    label
+      font-weight: bold
+      padding-right: 10px
+    
+    input, textarea
       display: block
       width: 300px
       height: 30px
@@ -30,7 +34,12 @@
       
       &[type=submit]
         width: 150px
-      
+        
+      &[type=file]
+        display: inline
+    
+    textarea
+      min-height: 200px
     .remember
       input
         display: inline
