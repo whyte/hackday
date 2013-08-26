@@ -6,6 +6,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    # need logic to redirect to either 'mentor' or 'youth' form text depending
+    # on where they arrived from.
   end
 
   def update
