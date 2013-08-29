@@ -1,10 +1,20 @@
 class HomeController < ApplicationController
   def index
     @pagetitle = "Home"
-    @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..3]
-    @mentors = User.where(:part_type => 'mentor', :published => true).all.shuffle[0..3]
+    @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..4]
+    @mentors = User.where(:part_type => 'mentor', :published => true).all.shuffle[0..4]
     #@host = Organization.find_by_org_type("host")
     #@partners = Organization.find_by_org_type("partner")
+  end
+  
+  def youth
+    @pagetitle = "All Youth"
+    
+  end
+  
+  def mentors
+    @pagetitle = "All Mentors"
+    
   end
   
   def sponsor

@@ -3,8 +3,8 @@
     <% @youth.each do |y| %>
       <%= link_to image_tag(y.avatar.url(:thumb)), :controller => "search", :action => "show", :id => y.id %>
     <% end %>
-    <div id="youth_link" class="user_link">
+    <!-- <div id="youth_link" class="user_link">
       <p>Meet all the students</p>
-    </div>
+    </div> -->
   </div>
 </div>

@@ -8,8 +8,9 @@ Hackday::Application.routes.draw do
   match 'admin/publish/:id' => 'admin#publish'
   match 'event' => 'home#event'
   match 'sponsorship' => 'home#sponsor'
-
-
+  match 'youth' => 'home#youth'
+  match 'mentors' => 'home#mentors'
+  
   resources :users do
     resources :skills
   end
