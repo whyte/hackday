@@ -1,26 +1,36 @@
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |form| %>
-  <%= devise_error_messages! %>
-  
-  <%= text_field_tag "user[first_name]", "First name", "data-original-text" => "First name", :class => "auto-replace" %>
-  <%= text_field_tag "user[last_name]", "Last name", "data-original-text" => "Last name", :class => "auto-replace" %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "user_form"}) do |form| %>
+  <div id="left_form">
     
-  <% if params[:part_type] == "youth" %>
-  <%= text_field_tag "user[school_company]", "School", "data-original-text" => "School", :class => "auto-replace" %>
-  <% else %>
-  <%= text_field_tag "user[school_company]", "Company", "data-original-text" => "Company", :class => "auto-replace" %>
-  <% end %>
+    <%= devise_error_messages! %>
   
-  <%= form.hidden_field :part_type, :value => params[:part_type] %>
-  
-  <%= text_field_tag "user[twitter]", "Twitter", "data-original-text" => "Twitter", :class => "auto-replace" %>
-  <%= text_area_tag "user[bio]", "Bio", "data-original-text" => "Bio", :class => "auto-replace" %>
+    <%= text_field_tag "user[first_name]", "First name", "data-original-text" => "First name", :class => "auto-replace" %>
+    <%= text_field_tag "user[last_name]", "Last name", "data-original-text" => "Last name", :class => "auto-replace" %>
     
-  <div><%= form.label :photo %><%= form.file_field :avatar %></div>
-
-  <%= text_field_tag "user[email]", "Email address", "data-original-text" => "Email address", :class => "auto-replace" %>
+    <% if session[:sign_up_type] == "youth" %>
+    <%= text_field_tag "user[school_company]", "School", "data-original-text" => "School", :class => "auto-replace" %>
+    <% else %>
+    <%= text_field_tag "user[school_company]", "Company", "data-original-text" => "Company", :class => "auto-replace" %>
+    <% end %>
   
-  <%= password_field_tag "user[password]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
-  <%= password_field_tag "user[password_confirmation]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
+    <%= form.hidden_field :part_type, :value => session[:sign_up_type] %>
+  
+    <%= text_field_tag "user[twitter]", "Twitter", "data-original-text" => "Twitter", :class => "auto-replace" %>
+    <%= text_area_tag "user[bio]", "Bio", "data-original-text" => "Bio", :class => "auto-replace" %>
+    
+    <div><%= form.label :photo %><%= form.file_field :avatar %></div>
 
+    <%= text_field_tag "user[email]", "Email address", "data-original-text" => "Email address", :class => "auto-replace" %>
+  
+    <%= password_field_tag "user[password]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
+    <%= password_field_tag "user[password_confirmation]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
+  </div>
+  <div class="add_skills"  id="right_form">  
+    <h1>Skills I need for my current job:</h1>
+    <ul>
+    <%- @skills.each do |s| %>
+      <li data-skill='<%= s.id %>'><%= s.value %></li>
+    <%- end %>
+    </ul>
+  </div>
   <div><%= form.submit "Sign up" %></div>
 <%- end %>  

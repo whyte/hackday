@@ -9,6 +9,11 @@ Hackday::Application.routes.draw do
   match 'event' => 'home#event'
   match 'sponsorship' => 'home#sponsor'
 
+
+  resources :users do
+    resources :skills
+  end
+
   #resources :organizations
 
   # The priority is based upon order of creation:

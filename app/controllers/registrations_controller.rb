@@ -1,13 +1,24 @@
 class RegistrationsController < Devise::RegistrationsController
   
   def new
+    if params[:part_type]
+      session["sign_up_type"] = params[:part_type]
+    end
+    
+    @skills = Skill.all
     super
   end
 
   def create
+    @skills = Skill.all
     super
-    # need logic to redirect to either 'mentor' or 'youth' form text depending
-    # on where they arrived from.
+    unless params[:skills].blank?
+      params[:skills].each do |s|
+        skill = Skill.find_by_id(s)
+        @user.skills << skill
+      end
+      @user.save
+    end
   end
 
   def update

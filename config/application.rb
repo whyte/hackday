@@ -58,5 +58,6 @@ module Hackday
     
     # To get DEVISE to work on heroku
     config.assets.initialize_on_precompile = false
+
   end
 end
