@@ -4,6 +4,11 @@
     <div id="user_photo">
       <%= image_tag @user.avatar.url(:thumb)%>
       <h1>STEM Skills</h1>
+      <ul>
+        <%- @user.skills.each do |skill|%>
+        <li><%= skill.value %></li>
+        <%- end %>
+      </ul>  
     </div>
     <div id="user_details">
       <ul>

@@ -4,17 +4,14 @@ class RegistrationsController < Devise::RegistrationsController
     if params[:part_type]
       session["sign_up_type"] = params[:part_type]
     end
-    
-    @skills = Skill.all
     super
   end
 
   def create
-    @skills = Skill.all
     super
     unless params[:skills].blank?
       params[:skills].each do |s|
-        skill = Skill.find_by_id(s)
+        skill = Skill.find_or_create_by_value(s.value)
         @user.skills << skill
       end
       @user.save
