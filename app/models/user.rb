@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
    def avatar_geometry(style = :original)
      @geometry ||= {}
-     @geometry[style] ||= Paperclip::Geometry.from_file(avatar.path(style))
+     @geometry[style] ||= Paperclip::Geometry.from_file(avatar.url(style))
    end
 
    private  
