@@ -3,12 +3,14 @@
   <div id="user_top">  
     <div id="user_photo">
       <%= image_tag @user.avatar.url(:thumb)%>
-      <h1>STEM Skills</h1>
-      <ul>
-        <%- @user.skills.each do |skill|%>
-        <li><%= skill.value %></li>
-        <%- end %>
-      </ul>  
+      <%- if @user.part_type == "mentor" %>
+        <h1>STEM Skills</h1>
+        <ul id='user_skills'>
+          <%- @user.skills.each do |skill|%>
+          <li><%= skill.value.downcase %></li>
+          <%- end %>
+        </ul>
+      <%- end %>    
     </div>
     <div id="user_details">
       <ul>

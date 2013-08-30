@@ -1,9 +1,16 @@
 <div id="youth_list"> 
   <div class="container">
-    <% @youth.each do |y| %>
+    <%= link_to image_tag("youth4.jpg"), new_user_registration_path(:part_type => "youth") %>
+    <%= link_to image_tag("youth5.jpg"), new_user_registration_path(:part_type => "youth") %>
+    <%= link_to image_tag("youth2.jpg"), new_user_registration_path(:part_type => "youth") %>
+    <%= link_to image_tag("youth1.jpg"), new_user_registration_path(:part_type => "youth") %>
+    <%= link_to image_tag("youth3.jpg"), new_user_registration_path(:part_type => "youth") %>
+    
+
+    <!-- <% @youth.each do |y| %>
       <%= link_to image_tag(y.avatar.url(:thumb)), :controller => "search", :action => "show", :id => y.id %>
     <% end %>
-    <!-- <div id="youth_link" class="user_link">
+    <div id="youth_link" class="user_link">
       <p>Meet all the students</p>
     </div> -->
   </div>

@@ -10,8 +10,13 @@ star-red.png: star-red-44d0fd20cb0fcb08c57552596f859a07.png
 star-teal.png: star-teal-be2ce9a7ed972af8ca7fbfbbaeef07e1.png
 teza-logo.png: teza-logo-10fb042954fe04cfd8ae007776ce34a6.png
 twitter.png: twitter-449d53e24ba910024fa04c00209b5159.png
-application.js: application-28480a9ccec55bc5e70d1ba09cc89c1f.js
-application.css: application-03253a9e48c14799b2a5ebe6652ca48c.css
+youth1.jpg: youth1-7b23f1fc9ebcbf7c41e2c5857449354c.jpg
+youth2.jpg: youth2-f77673b5185a7cfe7ea77156ce8034ba.jpg
+youth3.jpg: youth3-be906120a0d3577ed14b3a8452c3da96.jpg
+youth4.jpg: youth4-b270838ef090469fcc42f367376e6b80.jpg
+youth5.jpg: youth5-4d387b7e731cf7c146bfa677b6eea24e.jpg
+application.js: application-2e1571aa0241298ea1cc2c6591c8f9bc.js
+application.css: application-a27c57a8ff6551d1af050e3875a710da.css
 custom-theme/images/ui-bg_flat_0_002c33_40x100.png: custom-theme/images/ui-bg_flat_0_002c33_40x100-5563243a4a31cf04db8180a5f04506e3.png
 custom-theme/images/ui-bg_flat_0_aaaaaa_40x100.png: custom-theme/images/ui-bg_flat_0_aaaaaa_40x100-a1eb3e0764573ed4b261ca742ed96ac3.png
 custom-theme/images/ui-bg_flat_65_002c33_40x100.png: custom-theme/images/ui-bg_flat_65_002c33_40x100-5563243a4a31cf04db8180a5f04506e3.png

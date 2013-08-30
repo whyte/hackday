@@ -9,9 +9,17 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
+    unless params[:additional].blank?
+       skills = params[:additional][:skills].split(",").each {|t| t.strip!}
+       skills.each do |s|
+         skill = Skill.find_or_create_by_value(s) 
+         @user.skills << skill
+       end
+       @user.save
+    end   
     unless params[:skills].blank?
       params[:skills].each do |s|
-        skill = Skill.find_or_create_by_value(s.value)
+        skill = Skill.find_or_create_by_value(s[0])
         @user.skills << skill
       end
       @user.save

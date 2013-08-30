@@ -25,17 +25,17 @@
     <%= password_field_tag "user[password_confirmation]", "Password", "data-original-text" => "password", :class => "auto-replace" %>
   </div>
   <div class="add_skills">
-    <% if session[:sign_up_type] == "youth" %>  
+    <% if session[:sign_up_type] == "mentor" %>  
     <h3>Skills I need for my current job</h3>
     <% else %>
-    <h3>Skills I have</h3>
+    <h3>Skills I believe I have (No skills are required to participate!!):</h3>
     <% end %>
     <ul id="skill_listing">
     <%- skill_list.each do |skill| %>
       <li data-skill='<%= skill %>'><%= skill %></li>
     <%- end %>
     </ul>
-    <div><%= text_field_tag "skills[list]", "Additional, Skills, Listed, Here", "data-original-text" => "Additional, Skills, Listed, Here", :class => "auto-replace" %></div>
+    <div><%= text_field_tag "additional[skills]", "Additional, Skills, Listed, Here", "data-original-text" => "Additional, Skills, Listed, Here", :class => "auto-replace" %></div>
   </div>
    <div class="button_div"><%= form.submit "Sign up" %></div>
 <%- end %>  
