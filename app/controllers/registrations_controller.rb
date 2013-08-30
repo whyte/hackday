@@ -12,7 +12,7 @@ class RegistrationsController < Devise::RegistrationsController
     unless params[:additional][:skills] == "Additional, Skills, Listed, Here"
        skills = params[:additional][:skills].split(",").each {|t| t.strip!}
        skills.each do |s|
-         skill = Skill.find_or_create_by_value(s) 
+         skill = Skill.new(:value => s) 
          @user.skills << skill
        end
        @user.save
