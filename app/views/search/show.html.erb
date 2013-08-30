@@ -5,7 +5,7 @@
       <%- if @user.part_type == "mentor" %>
         <h1>STEM Skills</h1>
         <ul id='user_skills'>
-          <%- @user.skills.each do |skill|%>
+          <%- @user.skills.first(6).each do |skill|%>
           <li><%= skill.value.downcase %></li>
           <%- end %>
         </ul>

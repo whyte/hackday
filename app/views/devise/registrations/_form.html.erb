@@ -20,13 +20,14 @@
     <div><%= form.label :photo %><%= form.file_field :avatar %></div>
 
     <%= text_field_tag "user[email]", "Email address", "data-original-text" => "Email address", :class => "auto-replace" %>
-  
-    <%= text_field_tag "user[password]", "Password", "data-original-text" => "Password", :class => "auto-replace" %>
-    <%= text_field_tag "user[password_confirmation]", "Confirm Password", "data-original-text" => "Confirm Password", :class => "auto-replace" %>
+    <div><%= form.label :password %></div>
+    <%= password_field_tag "user[password]", "Password", "data-original-text" => "Password", :class => "auto-replace" %>
+    <div><%= form.label :password_confirmation %></div>
+    <%= password_field_tag "user[password_confirmation]", "Password", "data-original-text" => "Password", :class => "auto-replace" %>
   </div>
   <div class="add_skills">
     <% if session[:sign_up_type] == "mentor" %>  
-    <h3>Skills I need for my current job</h3>
+    <h3>The 6 most important SKILLS I need for my current job:</h3>
     <% else %>
     <h3>Skills I believe I have (No skills are required to participate!!):</h3>
     <% end %>
