@@ -3,6 +3,7 @@ adler-wordmark.png: adler-wordmark-1adb5b3706788a91feb71b0634955434.png
 gdh-chevron.png: gdh-chevron-014bccbd45d398318efdeb83841b05cb.png
 gdh-top.jpg: gdh-top-d6744483408b70d361e931a8aa0bc3fb.jpg
 logo-teza-blue.png: logo-teza-blue-8dcd30172cddad8d1e651002e19ce778.png
+logo-teza-gray.png: logo-teza-gray-c8ef31fa6a76b7d3cd9853188e5f5c65.png
 logo-teza.png: logo-teza-b5e72301f82f9039d4295bab9a9526fe.png
 pw_maze_white.png: pw_maze_white-0e2b1a0c8d62dcb759535f0e22e3cca5.png
 star-green.png: star-green-fde0ece5d9383aee5cbbe2488fd64f9f.png
@@ -16,7 +17,7 @@ youth3.jpg: youth3-be906120a0d3577ed14b3a8452c3da96.jpg
 youth4.jpg: youth4-b270838ef090469fcc42f367376e6b80.jpg
 youth5.jpg: youth5-4d387b7e731cf7c146bfa677b6eea24e.jpg
 application.js: application-2e1571aa0241298ea1cc2c6591c8f9bc.js
-application.css: application-f10e497946da0e17a07eaf0bd6598fa5.css
+application.css: application-65d7bb3eb7d93de3758e0136c66753c4.css
 custom-theme/images/ui-bg_flat_0_002c33_40x100.png: custom-theme/images/ui-bg_flat_0_002c33_40x100-5563243a4a31cf04db8180a5f04506e3.png
 custom-theme/images/ui-bg_flat_0_aaaaaa_40x100.png: custom-theme/images/ui-bg_flat_0_aaaaaa_40x100-a1eb3e0764573ed4b261ca742ed96ac3.png
 custom-theme/images/ui-bg_flat_65_002c33_40x100.png: custom-theme/images/ui-bg_flat_65_002c33_40x100-5563243a4a31cf04db8180a5f04506e3.png
