@@ -10,8 +10,9 @@ $ ->
     window.location.replace('/youth')
     
   $(".auto-replace").focus ->
-    $(this).val('')
-  
+    if $(this).attr('data-original-text') == $(this).val()
+      $(this).val('')
+              
   $(".auto-replace").blur ->
     val = $(this).val()
     if val is ""
