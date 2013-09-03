@@ -15,7 +15,9 @@
       <ul>
         <li class="name"><%= @user.first_name %> <%= @user.last_name %></li>
         <li class="company"><%= @user.school_company %></li>
-        <li class="twitter"><%= @user.twitter %></li>
+        <%- unless @user.twitter == "Twitter" %>
+        <li class="twitter"><%= link_to '@'+@user.twitter.gsub('@',''), "http://www.twitter.com/"+@user.twitter.gsub('@','') %> </li>
+        <%- end %>
       </ul>
       <p><%= @user.bio %></p>  
     </div>

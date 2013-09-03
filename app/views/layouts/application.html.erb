@@ -23,6 +23,7 @@
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Event Details', event_path %></li>
             <li><%= link_to 'Sponsorship', sponsorship_path %></li>            
+            <li><%= link_to 'Contact Us', contact_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
               <li><%= link_to current_user.first_name + " " + current_user.last_name, edit_user_registration_path %></li>
@@ -31,7 +32,7 @@
             <% end %>
           </ul>
           <div id="twitter_logo">
-            <%= link_to image_tag("twitter.png"), "https://twitter.com/girlsdohack" %>
+            <%= link_to image_tag("twitter.png"), "https://twitter.com/search?q=%23GDH2013%20%40adlerskywatch&mode=realtime&src=typd", :target => "_blank"%>
           </div>    
         </div>    
       </div>

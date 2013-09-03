@@ -10,6 +10,7 @@ Hackday::Application.routes.draw do
   match 'sponsorship' => 'home#sponsor'
   match 'youth' => 'home#youth'
   match 'mentors' => 'home#mentors'
+  match 'contact' => 'home#contact'
   
   resources :users do
     resources :skills
