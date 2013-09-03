@@ -6,7 +6,7 @@
       <th class="med">First Name</th> 
       <th class="med">Last Name</th> 
       <th class="med">Twitter</th> 
-      <th class="med">Phone</th> 
+      <th class="med">Email</th> 
       <th class="wide">School/Company</th> 
       <th class="thin">Type</th>
       <th class="med"></th></div>          
@@ -16,7 +16,7 @@
       <td class="med"><%= link_to p.first_name, :controller => "search", :action => "show", :id => p.id %></td> 
       <td class="med"><%= p.last_name %></td> 
       <td class="med"><%= p.twitter %></td> 
-      <td class="med"><%= p.phone %></td> 
+      <td class="med"><%= p.email %></td> 
       <td class="wide"><%= p.school_company %></td> 
       <td class="thin"><%= p.part_type %></td>
       <td class="med"><%= button_to "Publish", {:controller => :admin, :action => :publish, :id => p.id } %></div>          
