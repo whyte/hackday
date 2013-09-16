@@ -2,8 +2,8 @@ class AdminController < ApplicationController
   
   def index
     if current_user.admin?
-      @new_participants = User.find_all_by_published(nil)
-      @participants = User.find_all_by_published(true)
+      @mentors = User.find_all_by_part_type("mentor")
+      @youth = User.find_all_by_part_type("youth")
     else
       redirect_to :controller => "home", :action => "index"
     end

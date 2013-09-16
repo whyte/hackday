@@ -1,6 +1,6 @@
 
 <div class="container">
-  <h1>Potential Participants</h1>
+  <h1>Potential Mentors</h1>
   <table class="participants">
     <tr>
       <th class="med">First Name</th> 
@@ -11,7 +11,59 @@
       <th class="thin">Type</th>
       <th class="med"></th></div>          
     </tr>    
-    <%- @new_participants.each do |p| %>
+    <%- @mentors.each do |p| %>
+      <%- unless p.published? %>
+      <tr>
+        <td class="med"><%= link_to p.first_name, :controller => "search", :action => "show", :id => p.id %></td> 
+        <td class="med"><%= p.last_name %></td> 
+        <td class="med"><%= p.twitter %></td> 
+        <td class="med"><%= p.email %></td> 
+        <td class="wide"><%= p.school_company %></td> 
+        <td class="thin"><%= p.part_type %></td>
+        <td class="med"><%= button_to "Publish", {:controller => :admin, :action => :publish, :id => p.id } %></div>          
+      </tr>
+     <%- end %>  
+    <%- end %>  
+  </table>  
+
+  <h1>Committed Mentors</h1>
+  <table class="participants">
+    <tr>
+      <th class="med">First Name</th> 
+      <th class="med">Last Name</th> 
+      <th class="med">Twitter</th> 
+      <th class="med">Email</th> 
+      <th class="wide">Company</th> 
+      <th class="thin">Type</th>
+      <th class="med"></th></div>          
+    </tr>
+    <%- @mentors.each do |p| %>
+    <%- if p.published? %>
+    <tr>
+      <td class="med"><%= link_to p.first_name, :controller => "search", :action => "show", :id => p.id %></td> 
+      <td class="med"><%= p.last_name %></td> 
+      <td class="med"><%= p.twitter %></td> 
+      <td class="med"><%= p.email %></td> 
+      <td class="wide"><%= p.school_company %></td> 
+      <td class="thin"><%= p.part_type %></td>
+      <td class="med">Published</div>          
+    </tr>
+    <%- end %>  
+    <%- end %>  
+  </table>
+  <h1>Potential Youth</h1>
+  <table class="participants">
+    <tr>
+      <th class="med">First Name</th> 
+      <th class="med">Last Name</th> 
+      <th class="med">Twitter</th> 
+      <th class="med">Email</th> 
+      <th class="wide">Company</th> 
+      <th class="thin">Type</th>
+      <th class="med"></th></div>          
+    </tr>    
+    <%- @youth.each do |p| %>
+    <%- unless p.published? %>
     <tr>
       <td class="med"><%= link_to p.first_name, :controller => "search", :action => "show", :id => p.id %></td> 
       <td class="med"><%= p.last_name %></td> 
@@ -21,30 +73,33 @@
       <td class="thin"><%= p.part_type %></td>
       <td class="med"><%= button_to "Publish", {:controller => :admin, :action => :publish, :id => p.id } %></div>          
     </tr>
+    <%- end %>      
     <%- end %>  
   </table>  
 
-  <h1>Committed Participants</h1>
+  <h1>Committed Youth</h1>
   <table class="participants">
     <tr>
       <th class="med">First Name</th> 
       <th class="med">Last Name</th> 
       <th class="med">Twitter</th> 
-      <th class="med">Phone</th> 
-      <th class="wide">School/Company</th> 
+      <th class="med">Email</th> 
+      <th class="wide">School</th> 
       <th class="thin">Type</th>
       <th class="med"></th></div>          
     </tr>
-    <%- @participants.each do |p| %>
+    <%- @youth.each do |p| %>
+    <%- if p.published? %>
     <tr>
       <td class="med"><%= link_to p.first_name, :controller => "search", :action => "show", :id => p.id %></td> 
       <td class="med"><%= p.last_name %></td> 
       <td class="med"><%= p.twitter %></td> 
-      <td class="med"><%= p.phone %></td> 
+      <td class="med"><%= p.email %></td> 
       <td class="wide"><%= p.school_company %></td> 
       <td class="thin"><%= p.part_type %></td>
       <td class="med">Published</div>          
     </tr>
+    <%- end %>  
     <%- end %>  
   </table>
 </div>  
