@@ -1,0 +1,14 @@
+<div class="container">
+  <div id="header_text">      
+    <h1>Meet the STEM Mentors</h1> 
+    <p class="no_shadow">Extending a warm welcome to the STEM mentors who have committed to Girls Do Hack. Joining us from a wide cross-section of STEM careers, to help us empower the next generation to consider a path towards the sciences, technology, engineering and mathematics. </p>
+  </div>
+  <div id="all_mentors">
+  <% @mentors.each do |m| %>
+    <%= link_to image_tag(m.avatar.url(:thumb)), :controller => "search", :action => "show", :id => m.id %>
+  <% end %>
+  </div>
+</div>
+<div class="container">
+   <%= render 'stars'%>
+</div>  
