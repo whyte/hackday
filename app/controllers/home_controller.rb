@@ -23,6 +23,7 @@ class HomeController < ApplicationController
   
   def contact
     @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..4]
+    @staff = User.where(:part_type => 'staff')
   end
   
   def show_user
