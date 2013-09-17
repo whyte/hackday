@@ -36,7 +36,7 @@ function update_crop(coords) {
   <% if resource.cropped %>
     <div id="user_top">
       <div id="user_photo">
-        <%= image_tag @user.avatar.url(:thumb)%>
+        <div class="circle_image"><%= image_tag @user.avatar.url(:thumb)%></div>
         <h1>STEM Skills</h1>
       </div>
 
