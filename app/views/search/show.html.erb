@@ -2,7 +2,7 @@
   <div id="user_top">  
     <div id="user_photo">
       <%= image_tag @user.avatar.url(:thumb)%>
-      <%- if @user.part_type == "mentor" %>
+      <%- if @user.part_type == "mentor" || "staff" %>
         <h1>STEM Skills</h1>
         <ul id='user_skills'>
           <%- @user.skills.first(6).each do |skill|%>
