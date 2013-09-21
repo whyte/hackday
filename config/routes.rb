@@ -11,6 +11,7 @@ Hackday::Application.routes.draw do
   match 'youth' => 'home#youth'
   match 'mentors' => 'home#mentors'
   match 'contact' => 'home#contact'
+  match 'speaker' => 'home#speaker'
   
   resources :users do
     resources :skills
