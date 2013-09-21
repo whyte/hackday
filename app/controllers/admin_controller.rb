@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
   
   def index
-    expiry_time = Time.parse('21 Sept 2013 15:30:00')
+    expiry_time = Time.parse('21 Sept 2013 21:30:00')
     if current_user.admin?
       @mentors = User.where(:part_type => "mentor").where('created_at < ?', expiry_time)
       @youth = User.where(:part_type => "youth")
