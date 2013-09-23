@@ -21,6 +21,10 @@ class HomeController < ApplicationController
     @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..4]
   end
   
+  def speaker
+    @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..4]
+  end
+  
   def contact
     @youth = User.where(:part_type => 'youth', :published => true).all.shuffle[0..4]
     @staff = User.where(:part_type => 'staff')

@@ -1,23 +1,30 @@
 <div class="container">
   <div id="user_top">  
     <div id="user_photo">
-      <div class="circle_image"><%= image_tag @user.avatar.url(:thumb)%></div>
+      <div class="circle_image"><%= image_tag "poornima_thumb.png"%></div>
         <h1>STEM Skills</h1>
         <ul id='user_skills'>
-          <%- @user.skills.first(6).each do |skill|%>
-          <li><%= skill.value.downcase %></li>
-          <%- end %>
+          
+          <li>skills here</li>
+          <li>skills here</li>
+          <li>skills here</li>
+          <li>skills here</li>
         </ul>
     </div>
-    <div id="user_details">
+    <div id="speaker_details">
       <ul>
-        <li class="name"><%= @user.first_name %> <%= @user.last_name %></li>
-        <li class="company"><%= @user.school_company %></li>
-        <%- unless @user.twitter == "Twitter" %>
-        <li class="twitter"><%= link_to '@'+@user.twitter.gsub('@',''), "http://www.twitter.com/"+@user.twitter.gsub('@','') %> </li>
-        <%- end %>
+        <li class="name">Poornima Vijayashanker</li>
+        <li class="company"><%= link_to "Femgineer", "http://femgineer.com/" %></li>
+        <li class="twitter"><%= link_to '@poornima', "http://www.twitter.com/poornima" %> </li>
       </ul>
-      <p><%= @user.bio %></p>  
+        <p class="first">Growing up in the age of the personal computer revolution, Poornima Vijayashanker was always fascinated by technology. She taught herself to type at 10 on her mother’s typewriter, and then took apart her first computer at 14. Her father was a hardware engineer. When he said he made “chips” she thought potato chips, and when he said wafers, she thought cookies! Eventually her dad took her to his lab when she was 9, she sat and watched how chips and wafers were made and tested. Not disappointed at the lack of treats, she was utterly amazed by how everything was mechanized! Inspired by all that technology could do for humanity, she double majored in Electrical Engineering and Computer Science at Duke University. After graduating she moved out West to be in the heart of tech, Silicon Valley.</p>  
+        <p>She began her career as an R&D Engineer at Synopsys, eventually becoming enamored by Silicon Valley’s startup scene. Her first experience was as a founding engineer at Mint.com.</p>
+        <p>During her time at Mint, Poornima began blogging on engineering and entrepreneurship. Her goals at the time were modest: to have a creative outlet and showcase that women can be sophisticated, cultured, and still be engineers, Femgineers!</p>
+        <p>After Mint was acquired by Intuit, Poornima decided it was time to go from being a founding engineer to a founder! She started BizeeBee, out of a passion for yoga, which grew out of a 6 year practice. BizeeBee helps fitness businesses with customer management, and currently services private instructors and studios around the country.</p>
+        <p>Years ago when entering into tech, Poornima thought nothing of it being a male-dominated field. However, she took notice of how it impacted the rate of innovation on teams, success in recruiting and retaining technical talent, and ultimately building companies.</p>
+        <p>She has since taken her 6 year old blog, Femgineer, and transformed it into an education tech startup focused on helping professionals in tech level up in their careers, and tech entrepreneurs build products and companies.</p>
+        <p>Most recently, Poornima has been invited to teach as a visiting professor at Duke University’s Pratt School of Engineering. In the Fall of 2013 she will be teaching a course on: How to Start New Ventures in Electrical and Computer Engineering.</p>
+        <p class="last">Aside from being an engineer, entrepreneur, mentor, and blogger Poornima is an avid traveler, foodie, and Bikram yogini. She resides in Palo Alto, CA.</p>
     </div>
   </div>
 </div>
