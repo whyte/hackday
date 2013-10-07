@@ -134,7 +134,7 @@
       <td class="med"><%= p.email %></td> 
       <td class="wide"><%= p.school_company %></td> 
       <td class="thin"><%= p.part_type %></td>
-      <td class="med"></div>          
+      <td class="med"><%= button_to "Publish", {:controller => :admin, :action => :publish, :id => p.id } %></div>                 
     </tr>
     <%- end %>  
     <%- end %>  
