@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   
   def youth
     @pagetitle = "All Youth"
-    
+    @youth = User.where(:part_type => 'youth', :published => true)
   end
   
   def mentors

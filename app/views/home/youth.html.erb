@@ -1,0 +1,14 @@
+<div class="container">
+  <div id="header_text">      
+    <h1>Meet the Youth Participants</h1> 
+    <p class="no_shadow">We would like to welcome our youth participants to the event! We are looking forward to these motivated young women having the opportunity to meet their STEM mentors and that they have fun participating in the workshops designed to highlight the skills they will need for a future STEM career. Click on the photos below to learn more.</p>
+  </div>
+  <div id="all_mentors">
+  <% @youth.each do |m| %>
+    <%= link_to image_tag(m.avatar.url(:thumb)), :controller => "search", :action => "show", :id => m.id %>
+  <% end %>
+  </div>
+</div>
+<div class="container">
+   <%= render 'stars'%>
+</div>
